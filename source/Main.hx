@@ -3,7 +3,9 @@ package;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
+import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.system.scaleModes.StageSizeScaleMode;
 
 class Main extends Sprite 
 {
@@ -34,5 +36,6 @@ class Main extends Sprite
 		}
 		
 		addChild(new FlxGame(640, 480, PlayState));
+		FlxG.scaleMode = new StageSizeScaleMode();
 	}
 }
