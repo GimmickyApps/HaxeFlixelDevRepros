@@ -5,9 +5,9 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
+import flixel.util.FlxAxes;
 import flixel.util.FlxColor;
 import flixel.util.FlxDestroyUtil;
-import flixel.util.FlxMath;
 import openfl.Lib;
 using flixel.util.FlxSpriteUtil;
 
@@ -54,14 +54,6 @@ class PlayState extends FlxState
 		_logo = FlxDestroyUtil.destroy( _logo );
 	}
 
-	/**
-	 * Function that is called once every frame.
-	 */
-	override public function update():Void
-	{
-		super.update();
-	}
-	
 	override public function onResize(Width:Int, Height:Int):Void {
 		trace( Width, Height );
 		
@@ -69,9 +61,7 @@ class PlayState extends FlxState
 		_backgroundColour.setPosition();
 		
 		_logo.setGraphicSize( Width );
-		_logo.screenCenter( true, false );
-		_logo.y = 0;
-		//_logo.y = _logo.height * ( _logo.scale.y - 0.5 );
+		_logo.screenCenter( FlxAxes.X );
 		
 		_btnPlay.screenCenter();
 	}
