@@ -1,15 +1,12 @@
 package;
 
-import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
-import flixel.util.FlxSpriteUtil;
-import openfl.Assets;
 
 /**
- * Like a FlxTypedButton, but with custom drawing.  One callback for both (OnActivate).
+ * Like a FlxTypedButton, but with custom drawing.
  * 
  * @author Gimmicky Apps
  */
