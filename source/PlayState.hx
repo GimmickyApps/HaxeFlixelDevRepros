@@ -61,6 +61,7 @@ class PlayState extends FlxState
 		_backgroundColour.setPosition();
 		
 		_logo.setGraphicSize( Width );
+		_logo.updateHitbox();
 		_logo.screenCenter( FlxAxes.X );
 		
 		_btnPlay.screenCenter();
