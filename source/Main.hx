@@ -35,7 +35,7 @@ class Main extends Sprite
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		addChild(new FlxGame(640, 480, PlayState));
+		addChild(new FlxGame(640, 480, PlayState,1,60,60,true));
 		FlxG.scaleMode = new StageSizeScaleMode();
 	}
 }

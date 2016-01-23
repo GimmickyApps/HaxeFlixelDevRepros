@@ -26,9 +26,7 @@ class PlayState extends FlxState
 		_backgroundColour = new FlxSprite();
 		add(_backgroundColour);
 		
-		_logo = new FlxSprite();
-		_logo.makeGraphic( 640, 100, FlxColor.GREEN, true );
-		FlxSpriteUtil.drawRect( _logo, 3, 3, 634, 94, FlxColor.RED );
+		_logo = new CustomButton();
 		add( _logo );
 		
 		_btnPlay = new FlxButton( 0, 0, "Play", clickPlay );
