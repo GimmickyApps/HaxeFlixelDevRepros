@@ -27,8 +27,9 @@ class CustomButton extends FlxTypedButton<FlxSprite>
 		label = new FlxSprite().makeGraphic(labelHeight, labelHeight, fillColour, true); 
 
 		var stampText:FlxText = new FlxText( 0, 0, 0, word, Std.int(labelHeight * 0.75) );
-		label.stamp( stampText, Std.int((labelHeight - stampText.fieldWidth) / 2), Std.int((labelHeight - stampText.frameHeight) / 2) );
-		trace( stampText.frameHeight, Std.int((labelHeight - stampText.frameHeight) / 2) );
+		trace( stampText.frameHeight, Std.int((labelHeight - stampText.frameHeight) / 2) + 2 ); // +2 to show it's not about negative Y values or anything...
+		label.stamp( stampText, Std.int((labelHeight - stampText.fieldWidth) / 2), Std.int((labelHeight - stampText.frameHeight) / 2) + 2 );
+		trace( stampText.frameHeight, Std.int((labelHeight - stampText.frameHeight) / 2) + 2 );
 		stampText = null;
 	}
 }
