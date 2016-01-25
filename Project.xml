@@ -30,6 +30,7 @@
 	<!--------------------------------LIBRARIES------------------------------------->
 	
 	<haxelib name="flixel"/>
+	<haxelib name="advanced-layout"/>
 	<!--haxelib name="flixel-addons" /-->
 	<!--haxelib name="flixel-ui" /-->
 	<!--haxelib name="nape" /-->

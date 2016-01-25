@@ -10,6 +10,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxDestroyUtil;
 import openfl.Lib;
 using flixel.util.FlxSpriteUtil;
+using layout.LayoutCreator;
 
 class PlayState extends FlxState
 {
@@ -25,6 +26,7 @@ class PlayState extends FlxState
 		
 		_backgroundColour = new FlxSprite();
 		add(_backgroundColour);
+		_backgroundColour.simpleScale();
 		
 		_logo = new CustomButton();
 		add( _logo );
@@ -32,12 +34,12 @@ class PlayState extends FlxState
 		_btnPlay = new FlxButton( 0, 0, "Play", clickPlay );
 		add(_btnPlay);
 		
-		onResize( Lib.current.stage.stageWidth, Lib.current.stage.stageHeight ); // do layout
+		//onResize( Lib.current.stage.stageWidth, Lib.current.stage.stageHeight ); // do layout
 	}
 	
 	private function clickPlay():Void
 	{
-		FlxG.switchState( new PlayState() );
+		FlxG.switchState( new OtherState() );
 	}
 	
 	/**
@@ -52,16 +54,16 @@ class PlayState extends FlxState
 		_logo = FlxDestroyUtil.destroy( _logo );
 	}
 
-	override public function onResize(Width:Int, Height:Int):Void {
-		trace( Width, Height );
-		
-		_backgroundColour.makeGraphic( Width, Height, FlxColor.WHITE, true);
-		_backgroundColour.setPosition();
-		
-		_logo.setGraphicSize( Width );
-		_logo.updateHitbox();
-		_logo.screenCenter( FlxAxes.X );
-		
-		_btnPlay.screenCenter();
-	}
+	//override public function onResize(Width:Int, Height:Int):Void {
+		//trace( Width, Height );
+		//
+		//_backgroundColour.makeGraphic( Width, Height, FlxColor.WHITE, true);
+		//_backgroundColour.setPosition();
+		//
+		//_logo.setGraphicSize( Width );
+		//_logo.updateHitbox();
+		//_logo.screenCenter( FlxAxes.X );
+		//
+		//_btnPlay.screenCenter();
+	//}
 }
