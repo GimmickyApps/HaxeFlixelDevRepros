@@ -55,15 +55,28 @@ class PlayState extends FlxState
 	}
 
 	override public function onResize(Width:Int, Height:Int):Void {
-		trace( Width, Height );
-		
-		_backgroundColour.makeGraphic( Width, Height, FlxColor.WHITE, true);
-		_backgroundColour.setPosition();
-		
-		_logo.setGraphicSize( Width );
-		_logo.updateHitbox();
-		_logo.screenCenter( FlxAxes.X );
-		
-		_btnPlay.screenCenter();
+		FlxG.camera.x = 0;
+		FlxG.camera.y = 0;
+		FlxG.camera.width = Width;
+		FlxG.camera.height = Height;
+		FlxG.camera.scroll.x = 0;
+		FlxG.camera.scroll.y = 0;
+		forEach( function (spr:Dynamic) {
+			if (Reflect.isFunction( Reflect.field( spr, "updateHitbox" ) ))
+				spr.updateHitbox();
+		}, true );
+		var aspectRatio = Width / Height;
+		var minHeight = 100; // logo height
+		var minWidth = 640; // logo width
+		if (minHeight * aspectRatio < minWidth) { // i.e. if the window is skinnier than what we want to show (the red box with border)
+			// then make sure we show the full area width, and any extra height
+			FlxG.camera.zoom = Width / minWidth;
+			trace( "skinnier", Width, Height, aspectRatio, FlxG.camera.zoom );
+		} else { // window is wider
+			// then make sure we show the full area height, and any extra width
+			FlxG.camera.zoom = Height / minHeight;
+			trace( "wider", Width, Height, aspectRatio, FlxG.camera.zoom );
+		}
+		FlxG.camera.update(1);		
 	}
 }
