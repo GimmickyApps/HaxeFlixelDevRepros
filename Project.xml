@@ -8,11 +8,18 @@
 	
 	<!--------------------------------WINDOW SETTINGS------------------------------->
 	
-	<window width="640" height="480" fps="60" background="#000000" hardware="true" vsync="true" />
+	<window width="640" height="480" fps="60" background="#ffffff" hardware="true" vsync="true" />
 
 	<window if="web" orientation="portrait"  />
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
+
+	<!--Mobile-specific-->
+	<window if="mobile" fullscreen="true" width="0" height="0" />
+	<android minimum-sdk-version="21" />
+	<android target-sdk-version="21" />
+	<android install-location="preferExternal" unless="debug" /><!-- debug mode makes this fail on emu inst: INSTALL_FAILED_CONTAINER_ERROR / No content provider found for permission revoke -->
+	<architecture name="x86" if="android debug" />
+	
 	
 	<!--------------------------------PATHS SETTINGS-------------------------------->
 	
@@ -23,6 +30,7 @@
 	<!--------------------------------LIBRARIES------------------------------------->
 	
 	<haxelib name="flixel"/>
+	<!--<haxelib name="advanced-layout"/>-->
 	<!--haxelib name="flixel-addons" /-->
 	<!--haxelib name="flixel-ui" /-->
 	<!--haxelib name="nape" /-->
