@@ -57,10 +57,8 @@ class PlayState extends FlxState
 	override public function onResize(Width:Int, Height:Int):Void {
 		FlxG.camera.x = 0;
 		FlxG.camera.y = 0;
-		FlxG.camera.width = Width;
-		FlxG.camera.height = Height;
-		FlxG.camera.scroll.x = 0;
-		FlxG.camera.scroll.y = 0;
+		//FlxG.camera.scroll.x = 0;
+		//FlxG.camera.scroll.y = 0;
 		forEach( function (spr:Dynamic) {
 			if (Reflect.isFunction( Reflect.field( spr, "updateHitbox" ) ))
 				spr.updateHitbox();
@@ -77,6 +75,11 @@ class PlayState extends FlxState
 			FlxG.camera.zoom = Height / minHeight;
 			trace( "wider", Width, Height, aspectRatio, FlxG.camera.zoom );
 		}
-		FlxG.camera.update(1);		
+		FlxG.camera.width = Std.int( Width / FlxG.camera.zoom );
+		FlxG.camera.height = Std.int( Height / FlxG.camera.zoom );
+		FlxG.camera.scroll.x = (Width - Width / FlxG.camera.zoom) / 2;
+		FlxG.camera.scroll.y = (Height - Height / FlxG.camera.zoom) / 2;
+
+//		FlxG.camera.update(1);		
 	}
 }
