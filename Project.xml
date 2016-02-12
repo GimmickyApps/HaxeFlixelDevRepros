@@ -6,37 +6,29 @@
 	<app preloader="flixel.system.FlxPreloader" />
 	<set name="SWF_VERSION" value="11.8" />
 	
-	<!--------------------------------WINDOW SETTINGS------------------------------->
+	<window width="640" height="480" fps="60" background="#000000" hardware="true" vsync="true" />
 	
-	<window width="640" height="480" fps="60" background="#ffffff" hardware="true" vsync="true" />
-
+	<!--Web-specific-->
 	<window if="web" orientation="portrait"  />
-	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
-
+	
+	<!--Desktop-specific-->
+	<window if="desktop" orientation="landscape" fullscreen="true" resizable="true" />
+	
 	<!--Mobile-specific-->
 	<window if="mobile" fullscreen="true" width="0" height="0" />
 	<android minimum-sdk-version="19" />
 	<android target-sdk-version="19" />
 	<android install-location="preferExternal" unless="debug" /><!-- debug mode makes this fail on emu inst: INSTALL_FAILED_CONTAINER_ERROR / No content provider found for permission revoke -->
-	<architecture name="x86" if="android debug" />
-	
 	
 	<!--------------------------------PATHS SETTINGS-------------------------------->
 	
 	<set name="BUILD_DIR" value="export" />
 	<classpath name="source" />
-	<assets path="assets" />
+	<assets path="assets"/>
 	
 	<!--------------------------------LIBRARIES------------------------------------->
-	
+
 	<haxelib name="flixel"/>
-	<!--<haxelib name="advanced-layout"/>-->
-	<!--haxelib name="flixel-addons" /-->
-	<!--haxelib name="flixel-ui" /-->
-	<!--haxelib name="nape" /-->
 	
-	<!---------------------------------HAXEDEFINES---------------------------------->
-	
-	<haxedef name="FLX_NO_DEBUG" unless="debug" />
-	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+	<haxeflag name="-dce" value="full" unless="debug" /> <!-- leaving this line uncommented makes the default font invisible -->
 </project>

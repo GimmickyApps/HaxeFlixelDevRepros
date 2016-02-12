@@ -9,19 +9,18 @@ class PlayState extends FlxState
 {
     override public function create():Void
     {
-        var stampText = new FlxText(0, 0, 0, "Text");
+        var stampText = new FlxText(0, 0, 0, "[Text]", 24);
         stampText.color = FlxColor.RED;
 
         var sprite = new FlxSprite().makeGraphic(100, 100, FlxColor.BLUE);
         sprite.stamp(stampText);
-        add(sprite);
 
-        var _achievers = new FlxText( 100, 0, 50, "", 24 );
-        _achievers.color = FlxColor.WHITE;
-        add( _achievers );
-        _achievers.fieldWidth = 300;
-        _achievers.setFormat( "Nokia Cellphone FC Small", 24 );
-        _achievers.text = "Testing";
+        stampText = new FlxText(0, 0, 0, "    [Other Text]", 24);
+		stampText.font = "assets/fonts/graduate-regular-webfont.ttf";
+        stampText.color = FlxColor.GREEN;
+        sprite.stamp(stampText);
+
+        add(sprite);
     }
 }
 
