@@ -30,5 +30,5 @@
 
 	<haxelib name="flixel"/>
 	
-	<haxeflag name="-dce" value="full" unless="debug" /> <!-- leaving this line uncommented makes the default font invisible -->
+	<haxeflag name="-dce" value="full" unless="debug" /> <!-- leaving this line uncommented makes the default font invisible, and makes FlxText.frameWidth and .frameHeight return the wrong values -->
 </project>

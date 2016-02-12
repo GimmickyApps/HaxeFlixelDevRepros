@@ -10,14 +10,15 @@ class PlayState extends FlxState
     override public function create():Void
     {
         var stampText = new FlxText(0, 0, 0, "[Text]", 24);
-        stampText.color = FlxColor.RED;
+        //stampText.color = FlxColor.RED;
 
-        var sprite = new FlxSprite().makeGraphic(100, 100, FlxColor.BLUE);
-        sprite.stamp(stampText);
+        var sprite = new FlxSprite().makeGraphic(300, 300, FlxColor.BLUE);
+        //sprite.stamp(stampText);
 
         stampText = new FlxText(0, 0, 0, "    [Other Text]", 24);
 		stampText.font = "assets/fonts/graduate-regular-webfont.ttf";
         stampText.color = FlxColor.GREEN;
+		stampText.text = stampText.frameWidth + ", " + stampText.frameHeight;
         sprite.stamp(stampText);
 
         add(sprite);
