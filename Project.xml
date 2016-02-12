@@ -2,7 +2,7 @@
 <project>
 	<!------------------------------APPLICATION SETTINGS---------------------------->
 	
-	<app title="ScaleHuh" file="ScaleHuh" main="Main" version="0.0.1" company="Gimmicky Apps" />
+	<app title="ScaleHuh" file="ScaleHuh" main="Main" version="0.0.2" company="Gimmicky Apps" />
 	<app preloader="flixel.system.FlxPreloader" />
 	<set name="SWF_VERSION" value="11.8" />
 	
@@ -15,8 +15,8 @@
 
 	<!--Mobile-specific-->
 	<window if="mobile" fullscreen="true" width="0" height="0" />
-	<android minimum-sdk-version="21" />
-	<android target-sdk-version="21" />
+	<android minimum-sdk-version="19" />
+	<android target-sdk-version="19" />
 	<android install-location="preferExternal" unless="debug" /><!-- debug mode makes this fail on emu inst: INSTALL_FAILED_CONTAINER_ERROR / No content provider found for permission revoke -->
 	<architecture name="x86" if="android debug" />
 	
